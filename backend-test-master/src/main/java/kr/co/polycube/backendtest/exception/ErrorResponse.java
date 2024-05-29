@@ -2,7 +2,7 @@ package kr.co.polycube.backendtest.exception;
 
 import lombok.*;
 
-@Getter @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ErrorResponse {

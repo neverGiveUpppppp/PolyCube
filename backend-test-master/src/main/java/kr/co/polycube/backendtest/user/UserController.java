@@ -2,10 +2,7 @@ package kr.co.polycube.backendtest.user;
 
 
 import jakarta.validation.Valid;
-import kr.co.polycube.backendtest.user.dto.CreateUserRequest;
-import kr.co.polycube.backendtest.user.dto.CreateUserResponse;
-import kr.co.polycube.backendtest.user.dto.UpdateUserRequest;
-import kr.co.polycube.backendtest.user.dto.UpdateUserResponse;
+import kr.co.polycube.backendtest.user.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
@@ -29,9 +26,9 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Users> getUser(@PathVariable("id") Long id) {
+    public ResponseEntity<GetUserResponse> getUser(@PathVariable("id") Long id) {
         Users user = userService.findOne(id);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(new GetUserResponse(user.getId(), user.getName()));
     }
 
     @PutMapping("/{id}")
